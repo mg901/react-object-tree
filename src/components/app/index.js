@@ -1,8 +1,11 @@
 import React from 'react';
 import 'normalize.css';
-import { changeField, addNode, deleteNode } from './events';
-import { AddNodeForm, FormInput, AddNode, NodeList } from './components';
-import './app.css';
+import { changeField, addNode, deleteNode } from '../../events';
+import { AddNodeForm } from '../add-node-form';
+import { FormInput } from '../form-input';
+import { AddNode } from '../add-node';
+import { NodeList } from '../node-list';
+import './index.css';
 
 export const App = () => (
   <>
