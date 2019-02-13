@@ -10,5 +10,10 @@
         "loose": true
       }
     ]
-  ]
+  ],
+  "env": {
+    "production": {
+      "plugins": ["@babel/plugin-transform-react-constant-elements"]
+    }
+  }
 }

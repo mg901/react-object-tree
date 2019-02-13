@@ -1,6 +1,43 @@
 const { DefinePlugin, HotModuleReplacementPlugin } = require('webpack');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const { FAVICON, POSTCSS } = require('./constants');
+const devServer = require('./dev-server');
+const linting = require('./linting');
+
+const files = () => ({
+  test: /\.(png|jpg|gif|svg|woff|woff2)$/,
+  use: [
+    {
+      loader: 'file-loader',
+      options: {
+        name: 'images/[name].[ext]',
+      },
+    },
+  ],
+});
+
+const css = () => ({
+  test: /\.css$/,
+  use: [
+    'style-loader',
+    {
+      loader: 'css-loader',
+      options: {
+        sourceMap: true,
+      },
+    },
+    'resolve-url-loader',
+    {
+      loader: 'postcss-loader',
+      options: {
+        sourceMap: true,
+        config: {
+          path: POSTCSS,
+        },
+      },
+    },
+  ],
+});
 
 module.exports = {
   mode: 'development',
@@ -14,15 +51,7 @@ module.exports = {
   watchOptions: {
     aggregateTimeout: 100,
   },
-  devServer: {
-    overlay: true,
-    port: 3000,
-    hot: true,
-    stats: {
-      'errors-only': true,
-    },
-    historyApiFallback: true,
-  },
+  devServer: devServer(),
   plugins: [
     new DefinePlugin({
       NODE_ENV: JSON.stringify('development'),
@@ -51,53 +80,6 @@ module.exports = {
     }),
   ],
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        enforce: 'pre',
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'eslint-loader',
-            options: {
-              fix: true,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(png|jpg|gif|svg|woff|woff2)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'images/[name].[ext]',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          'resolve-url-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              config: {
-                path: POSTCSS,
-              },
-            },
-          },
-        ],
-      },
-    ],
+    rules: [linting(), files(), css()],
   },
 };

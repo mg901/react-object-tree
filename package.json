@@ -19,6 +19,7 @@
   "dependencies": {
     "effector": "0.18.2",
     "effector-react": "0.18.6",
+    "normalize.css": "8.0.1",
     "react": "16.8.1",
     "react-dom": "16.8.1",
     "react-hot-loader": "4.6.5"
@@ -29,7 +30,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/plugin-syntax-import-meta": "^7.2.0",
     "@babel/plugin-transform-async-to-generator": "^7.2.0",
-    "@babel/plugin-transform-react-constant-elements": "^7.2.0",
+    "@babel/plugin-transform-react-constant-elements": "7.2.0",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "7.0.0",
