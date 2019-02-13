@@ -10,7 +10,12 @@ module.exports = {
   },
   resolve: {
     modules: ['node_modules'],
-    alias: {},
+    alias: {
+      '@stores': resolve(SRC, 'stores'),
+      '@events': resolve(SRC, 'events'),
+      '@icons': resolve(SRC, 'icons'),
+      '@components': resolve(SRC, 'components'),
+    },
   },
   plugins: [
     new NoEmitOnErrorsPlugin(),

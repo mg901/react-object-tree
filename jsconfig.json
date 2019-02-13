@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "checkJs": false,
+    "lib": ["es2015", "es2016", "dom"],
+    "paths": {
+      "@stores/*": ["./stores/*"],
+      "@events/*": ["./events/*"],
+      "@icons/*": ["./icons/*"],
+      "@components/*": ["./components/*"]
+    }
+  },
+  "exclude": ["node_modules", "public"]
+}
