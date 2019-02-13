@@ -1,9 +1,18 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from './store/configure-store';
+import { changeField, addNode, deleteNode } from './events';
+import {
+  AddNodeForm,
+  FormInput,
+  AddNode,
+  NodeList,
+} from './components';
 
 export const App = () => (
-  <Provider store={store}>
-    <h1>Hello World</h1>
-  </Provider>
+  <>
+    <AddNodeForm addNode={addNode}>
+      <FormInput changeField={changeField} />
+      <AddNode addNode={addNode} />
+    </AddNodeForm>
+    <NodeList deleteNode={deleteNode} />
+  </>
 );
