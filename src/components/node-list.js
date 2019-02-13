@@ -1,6 +1,6 @@
 import React from 'react';
 import { createComponent } from 'effector-react';
-import { nodes } from '@stores';
+import { nodes } from '../stores';
 import { Node } from './node';
 
 export const NodeList = createComponent(nodes, ({ deleteNode }, list) => (
