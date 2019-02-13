@@ -1,11 +1,6 @@
 import React from 'react';
 import { changeField, addNode, deleteNode } from './events';
-import {
-  AddNodeForm,
-  FormInput,
-  AddNode,
-  NodeList,
-} from './components';
+import { AddNodeForm, FormInput, AddNode, NodeList } from './components';
 
 export const App = () => (
   <>
