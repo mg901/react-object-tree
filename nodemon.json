@@ -5,6 +5,7 @@
     "webpack.config.js",
     ".babelrc",
     ".eslintrc",
-    "jsconfig.json"
+    "jsconfig.json",
+    "jest.config.js"
   ]
 }
