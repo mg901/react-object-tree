@@ -16,4 +16,4 @@ nodes
       node: [],
     },
   ])
-  .on(deleteNode, (state, index) => state.filter((_, i) => i !== index));
+  .on(deleteNode, (state, id) => state.filter((node) => node.id !== id));
