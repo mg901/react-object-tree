@@ -1,6 +1,6 @@
 import React from 'react';
 import { createComponent } from 'effector-react';
-import { inputText } from '../stores';
+import { inputText } from '@stores';
 
 export const AddNodeForm = createComponent(
   inputText,

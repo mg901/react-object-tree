@@ -1,3 +1,4 @@
+export { App } from './app';
 export { AddNode } from './add-node';
 export { AddNodeForm } from './add-node-form';
 export { FormInput } from './form-input';
